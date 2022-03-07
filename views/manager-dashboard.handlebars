@@ -1,0 +1,85 @@
+{{>header-nav}}
+<section class='level m-auto my-5'>
+  <div class='container is-centered'>
+    <div class='tile is-ancestor has-background-info-dark'>
+      <div class="tile is-parent is-vertical">
+        <div class="box has-text-centered">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="/img/avatar.jpg" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content ">
+            <div class="media-content has-text-centered">
+              <p class="title is-4 has-text-black">{{user.first_name}} {{user.last_name}}</p>
+              <p class="subtitle mb-0 is-6 has-text-black">{{user.role}}</p>
+              <p class="subtitle is-6 has-text-black">@{{user.username}}</p>
+            </div>
+          </div>
+          <h1 class='box title is-size-4-tablet has-text-white has-background-info-dark'>Manager<br> Dashboard</h1>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <div class="box">
+          <div class="columns has-text-centered has-text-weight-bold">
+            <div class="column card m-1">
+              <div class="is-child notification is-primary is-flex is-flex-direction-column is-align-items-center">
+                <span class="iconify-inline icon is-large" data-icon="wpf:create-new">
+                </span>
+                <a class="open-project-modal" class="mt-1">Create<br>Project</a>
+              </div>
+            </div>
+            <div class="column card m-1">
+              <div class="is-child notification is-primary  is-flex is-flex-direction-column is-align-items-center">
+                <span class="iconify-inline icon is-large" data-icon="fluent:people-team-add-24-regular">
+                </span>
+                <a href="/teams" class="mt-1">Manage <br>Teams</a>
+              </div>
+            </div>
+          </div>
+          <div class="columns has-text-centered is-flex is-flex-direction-column is-align-items-center">
+            <form class="column card m-1">
+              <div class="tile is-12 is-parent notification is-primary ">
+                <div class="field ">
+                  <label class="label has-text-white ">View Current Project</label>
+                  <div class="control">
+                    <span class="iconify-inline icon is-large" data-icon="icons8:parallel-tasks">
+                    </span>
+                    <div class="select is-size-7-mobile">
+                      <select class="project-list">
+                        <option disabled selected value="/">Select Project</option>
+                        {{#each projects as |project|}}
+                        <option value="/teams/{{project.team_id}}">{{project.title}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="column card m-1">
+              <div class="tile is-12 is-parent notification is-primary">
+                <div class="field ">
+                  <label class="label has-text-white">View Teams</label>
+                  <div class="control ">
+                    <span class="iconify-inline icon is-large" data-icon="fluent:people-team-28-regular">
+                    </span>
+                    <div class="select is-size-7-mobile">
+                      <select class="team-list">
+                        <option disabled selected value="/">Select Team</option>
+                        {{#each teams as |team|}}
+                        <option value="/teams/{{team.id}}">{{team.name}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{{>modal-create-proj}}
+<script src="/js/managerDashboard.js"></script>

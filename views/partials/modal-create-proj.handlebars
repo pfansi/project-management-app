@@ -1,0 +1,81 @@
+<section id='modalCreateProject' class='modal'>
+  <div class='modal-background'></div>
+  <div class='modal-card'>
+    <div class='container'>
+      <div class='box column is-centered has-background-info-dark'>
+        <div class='card'>
+          <div class='card-content'>
+            <form class='project-form'>
+              <h1 class='box title has-text-white has-text-centered has-background-info-dark'>Create
+                <br />A New Project
+                <span class="iconify-inline" data-icon="wpf:create-new" data-flip="horizontal"></span>
+              </h1>
+              <div class='columns'>
+                <div class='column is-5'>
+                  <div>
+                    <span class='button is-static has-background-warning'>Project&emsp;</span>
+                  </div>
+                </div>
+                <div class='column is-7'>
+                  <div class='field'>
+                    <div class='control'>
+                      <input id='project-title' class='input' type='text' placeholder='Input Project Name' required
+                        minlength='5' maxlength='15' />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='columns'>
+                <div class='column is-5'>
+                  <div>
+                    <span class='button is-static has-background-warning'>Deadline</span>
+                  </div>
+                </div>
+                <div class='column is-7'>
+                  <div class='field'>
+                    <div class='control'>
+                      <input id='project-deadline' class='input' type='date' value='' placeholder='DD-MM-YYYY' />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='columns'>
+                <div class='column is-5'>
+                  <div>
+                    <span class='button is-static has-background-warning'>Assign Free Team</span>
+                  </div>
+                </div>
+                <div class='column is-10 mr-3'>
+                  <div class='field'>
+                    <div class='control'>
+                      <div class='select'>
+                        <select id='assign-team'>
+                          {{#each freeTeams as |team|}}
+                          <option data-id={{team.id}}>{{team.name}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='field is-grouped is-grouped-centered'>
+                <p class='control'>
+                  <button type='submit' id='create-project-btn' class='button is-primary'>
+                    Create Project
+                  </button>
+                </p>
+                <p class='control'>
+                  <button type='button' class='cancel-project-btn button has-background-danger has-text-white'>
+                    Cancel
+                  </button>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src='/js/createProject.js'></script>

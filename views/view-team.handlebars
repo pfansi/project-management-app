@@ -1,0 +1,76 @@
+{{>header-nav}}
+<section class='level m-auto'>
+  <div class='container box is-max-desktop has-background-info-dark'>
+    <div class="column mr-1">
+      <div class="columns">
+        <div class="box column is-5 mr-1">
+          <h1 class='box title is-3 has-text-white has-text-centered has-background-info-dark mt-1'>
+            <span class="iconify-inline" data-icon="fluent:people-team-24-regular" data-flip="horizontal">
+            </span>Team Members
+          </h1>
+          {{>employee-card}}
+        </div>
+
+        <div class="box column is-7 is-justify-content-center has-text-centered">
+          <h1 class='box title is-3 has-text-white has-background-info-dark mt-1'>
+            <span class="iconify-inline" data-icon="gridicons:stats-up-alt"></span>Team Statistics
+            <span class="iconify-inline" data-icon="gridicons:stats-up-alt" data-flip="horizontal"></span>
+          </h1>
+          <div class="box has-background-info-dark px-1">
+            <p class="is-size-5 has-text-white">Current Status of All Tasks</p>
+            <div
+              class="tabs is-rounded is-centered has-background-link-light mb-0 is-size-7-mobile is-size-7-tablet is-size-7-desktop">
+              <ul>
+                <li class="is-active has-text-weight-bold">
+                  <a>
+                    <p class="tag mr-1 is-link all-tasks">{{teamTasksData.all}}</p>
+                    <span>All</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <p class="tag is-success mr-1 has-text-white completed">{{teamTasksData.completed}}</p>
+                    <span>Completed</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <p class="tag is-warning mr-1 has-text-warning-white in-progress">
+                      {{teamTasksData.in_progress}}</p>
+                    <span>In Progress</span>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <p class="tag is-danger mr-1 has-text-white not-started">{{teamTasksData.not_started}}</p>
+                    <span>Not Started</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-content columns is-flex is-justify-content-center">
+            <div class="media-content column is-desktop is-7">
+              <div class="piechart-container mt-3">
+                <canvas class="piechart"></canvas>
+              </div>
+              <div class='field m-3'>
+                <a href="/teams/{{teamData.id}}/tasks" class='button is-link'>
+                  <span class="iconify-inline" data-icon="carbon:task-view" data-flip="horizontal">
+                  </span>View Team Tasks</a>
+              </div>
+              <div class="field m-3">
+                <button class='button is-link create-task'>
+                  <span class="iconify-inline" data-icon="carbon:task-tools" data-flip="horizontal">
+                  </span> Create a Task</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{>modal-create-task}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script src="/js/viewTeam.js"></script>

@@ -1,0 +1,83 @@
+{{>header-nav}}
+<section class='level m-auto'>
+  <div class='container'>
+    <div class='card column p-3 has-background-info-dark'>
+      <div class='card'>
+        <div class="card-content">
+          <h1 class='box title has-text-white has-text-centered has-background-info-dark'>Manage Teams</h1>
+
+          <div class='columns'>
+            <form class="create-team">
+              <div class='column'>
+                <div class="mb-5">
+                  <span class='box has-background-warning py-3 px-3'>
+                    <span class="iconify-inline" data-icon="fluent:people-team-add-20-regular" style="font-size: 32px;"
+                      data-flip="horizontal">
+                    </span> Create a new Team</span>
+                </div>
+
+                <div class='field'>
+                  <div class='control'>
+                    <input class='input team-name' type='text' placeholder='Team Name' required minlength='5'
+                      maxlength='15' />
+                  </div>
+                </div>
+                <p class="create-team-success is-size-7 has-text-success mb-3 is-hidden">Team created successfully.
+                </p>
+                <div class='field'>
+                  <button type="submit" class='button is-primary'>Create Team</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class='columns'>
+            <div class='column'>
+              <form class="assign-employee-team">
+                <div class="mb-4">
+                  <span class='box has-background-warning py-3 px-3'>
+                    <span class="iconify-inline" data-icon="ant-design:team-outlined" style="font-size: 32px;"
+                      data-flip="horizontal">
+                    </span> Assign Employees to a Team</span>
+                </div>
+                <div class="field">
+                  <label for="select-team">Select a Team</label>
+                  <div class="control mb-0">
+                    <div class="select">
+                      <select class="select-team" id="select-team">
+                        <option disabled selected value="/">Please select a Team</option>
+                        {{#each teams as |team|}}
+                        <option data-id={{team.id}} value='/teams/{{team.id}}'>{{team.name}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="select-employee">Select an Employee</label>
+                  <div class="control mb-0">
+                    <div class="select">
+                      <select class="select-employee" id="select-employee">
+                        <option disabled selected value="/">Select an Employee</option>
+                        {{#each users as |user|}}
+                        <option data-id="{{user.id}}" value='/users/{{user.id}}'>{{user.first_name}}
+                          {{user.last_name}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <p class="add-employee-success is-size-7 has-text-success mb-3 is-hidden">Employee added
+                  successfully.</p>
+                <div class='field'>
+                  <button type="submit" class='button is-primary'>Add Employee</button>
+                </div>
+                <a href='/' class='button has-text-white has-text-weight-bold is-danger'>Cancel</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/js/createTeam.js"></script>

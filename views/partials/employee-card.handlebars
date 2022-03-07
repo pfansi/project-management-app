@@ -1,0 +1,33 @@
+{{#each teamData.usersData as |user|}}
+<div class='box column is-flex-direction-column has-background-info-dark'>
+  <div class="columns">
+    <div class='column is-3'>
+      <figure class='image is-64x64 is-white'>
+        <img class='is-rounded' src='/img/avatar.jpg' alt="Placeholder" />
+      </figure>
+    </div>
+
+    <div class='column is-9'>
+      <div class='tag is-white is-medium'>
+        <a href='/users/{{user.id}}/tasks'>
+          <span class="iconify-inline" data-icon="fluent:people-team-32-regular"></span>
+          {{user.first_name}} {{user.last_name}}
+        </a>
+      </div>
+
+      <div class='user-tasks column is-flex p-0 mt-1'>
+        <span class='tag has-text-black is-small has-background-primary mr-1'>
+          Tasks Completed
+        </span>
+        <span class='tag is-white is-small has-background-warning mr-1'>
+          {{user.completed_tasks}}/{{user.total_tasks}}
+        </span>
+        <span class='tag is-white is-small has-background-primary'>
+          {{percentage user.completed_tasks user.total_tasks}}
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{/each}}

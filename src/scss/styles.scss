@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+// variables
+@import './variables';
+
+// bulma
+@import '../../node_modules/bulma/bulma.sass';
+
+// reset
+@import './reset';
+
+// navbar
+@import './navbar';
+
+// piechart
+@import './piechart';
+
+// tables
+@import './tables';
+
+// image
+@import './main';
+
+// signup and login
+@import './signup-login';

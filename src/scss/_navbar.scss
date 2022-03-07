@@ -1,0 +1,28 @@
+.navbar-menu {
+  display: block;
+  padding: 0;
+  height: 0;
+  transition: $toggle-transition;
+  overflow: hidden;
+}
+
+.navbar-end {
+  padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-menu {
+    height: auto !important;
+  }
+
+  .navbar-end {
+    height: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    padding: 0 1rem;
+  }
+}

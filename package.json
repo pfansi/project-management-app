@@ -1,0 +1,53 @@
+{
+  "name": "team-task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp production && node server.js",
+    "watch": "gulp & nodemon server.js",
+    "seed": "node seeds/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AidKool/team-task-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AidKool/team-task-manager/issues"
+  },
+  "homepage": "https://github.com/AidKool/team-task-manager#readme",
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^4.1.3",
+    "autoprefixer": "^10.4.2",
+    "bcrypt": "^5.0.1",
+    "bulma": "^0.9.3",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "mysql2": "^2.3.3",
+    "sass": "^1.49.7",
+    "sequelize": "^6.15.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

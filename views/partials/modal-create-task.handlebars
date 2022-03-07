@@ -1,0 +1,93 @@
+<section id='modalCreateTask' class='modal'>
+  <div class='modal-background'></div>
+  <div class='modal-card'>
+    <div class='container'>
+      <div class='box column is-centered has-background-info-dark'>
+        <div class='card'>
+          <div class='card-content'>
+            <form class='create-task-form'>
+              <h1 class='box title has-text-white has-text-centered has-background-info-dark'>Create
+                <br />A New Task
+                <span class='iconify-inline' data-icon='carbon:task-tools' data-flip='horizontal'></span>
+              </h1>
+
+              <div class='columns'>
+                <div class='column is-4'>
+                  <div>
+                    <span class='button is-static has-background-warning'>Task
+                      Name</span>
+                  </div>
+                </div>
+                <div class='column is-8 mr-1'>
+                  <div class='field'>
+                    <div class='control'>
+                      <input id='task-title' class='input' type='text' placeholder='Task Name' required minlength='5'
+                        maxlength='25' />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='columns'>
+                <div class='column is-4'>
+                  <div>
+                    <span class='button is-static has-background-warning'>Deadline</span>
+                  </div>
+                </div>
+                <div class='column is-8 mr-1'>
+                  <div class='field'>
+                    <div class='control'>
+                      <input id='task-deadline' class='input' type='date' placeholder='DD-MM-YYYY' required />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='columns'>
+                <div class='column is-4'>
+                  <div>
+                    <span class='button is-static has-background-warning'>Assign
+                      Task</span>
+                  </div>
+                </div>
+                <div class='column is-12 mr-1'>
+                  <div class='field'>
+                    <div class='control'>
+                      <div class='select'>
+                        <select class='user-list'>
+                          {{#each teamData.usersData as |user|}}
+                          <option data-id='{{user.id}}'>{{user.first_name}}
+                            {{user.last_name}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='mb-2'>
+                <span class='button is-static has-background-warning'>Short
+                  Description of Task</span>
+              </div>
+              <textarea id='task-description' class='textarea is-info' placeholder='Task Description' required
+                minlength='10' maxlength='200'></textarea>
+              <div class='field is-grouped is-grouped-centered mt-2'>
+                <p class='control'>
+                  <button type='submit' id='save-task' class='button is-primary'>
+                    Save Task
+                  </button>
+                </p>
+                <p class='control'>
+                  <button type='button' class='button has-background-danger has-text-white cancel-create-task'>
+                    Cancel
+                  </button>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src='/js/createTask.js'></script>

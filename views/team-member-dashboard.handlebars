@@ -1,0 +1,177 @@
+{{>header-nav}}
+<section class='level m-auto my-5'>
+  <div class='container column'>
+    <div class='columns box has-background-info-dark'>
+      <article class="column is-3 box mr-1">
+        <div class="card-image block">
+          <figure class="image is-square">
+            <img src="/img/avatar.jpg" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content block ">
+          <div class="media-content has-text-centered">
+            <p class="title is-4 has-text-black">{{userData.first_name}} {{userData.last_name}}</p>
+            <p class="subtitle is-6 has-text-black">@{{userData.username}}</p>
+          </div>
+        </div>
+        <div class='buttons is-centered '>
+          <a href="/teams/{{userData.team_id}}" class='button has-background-info-dark has-text-white'>View
+            Team</a>
+          <a href="/teams/{{userData.team_id}}/tasks" class='button has-background-info-dark has-text-white'>All
+            Team Tasks
+          </a>
+        </div>
+      </article>
+
+      <div class="column box text-is-centered">
+        <h1 class='box title is-3 has-text-white has-text-centered has-background-info-dark mb-2'>Team Member <br>
+          Dashboard
+        </h1>
+        <div class="box has-background-warning p-0">
+          <div class="column">
+            <p class="is-size-5-mobile has-text-weight-bold ">All Assigned Project Tasks</p>
+            <div
+              class="tabs is-toggle is-fullwidth has-background-link-light mb-0 is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+              <ul>
+                <li class="table-btn is-active" data-id="all-tasks">
+                  <a>
+                    <p class="mr-1">{{userData.tasks.length}}</p>
+                    <span>All</span>
+                  </a>
+                </li>
+                <li class="table-btn" data-id="completed-tasks">
+                  <a>
+                    <p class="tag is-success mr-1  has-text-white ">{{completedTasks.length}}</p>
+                    <span>Completed</span>
+                  </a>
+                </li>
+                <li class="table-btn" data-id="in-progress-tasks">
+                  <a>
+                    <p class="tag is-warning mr-1 has-text-warning-white">{{inProgressTasks.length}}</p>
+                    <span>In Progress</span>
+                  </a>
+                </li>
+                <li class="table-btn" data-id="not-started-tasks">
+                  <a>
+                    <p class="tag is-danger mr-1 has-text-white">{{notStartedTasks.length}}</p>
+                    <span>Not Started</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class=" box">
+              <div class="column is-align-items-center">
+                <table class="table tasks-table is-scrollable is-hidden active" id="all-tasks">
+                  <thead>
+                    <tr>
+                      <th><abbr title="Position">Task ID</abbr></th>
+                      <th>Task Title</th>
+                      <th>Task Deadline</th>
+                      <th>Task Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each userData.tasks as |task|}}
+                    <tr class="task-row is-clickable" data-id="{{task.id}}">
+                      <th>{{task.id}}</th>
+                      <td>
+                        <p>{{task.task_title}}</p>
+                      </td>
+                      <td>
+                        {{formatDate task.task_deadline}}
+                      </td>
+                      <td>
+                        <p>{{sanitiseStatus task.status}}</p>
+                      </td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+                <table class="table tasks-table is-scrollable is-hidden" id="completed-tasks">
+                  <thead>
+                    <tr>
+                      <th><abbr title="Position">Task ID</abbr></th>
+                      <th>Task Title</th>
+                      <th>Task Deadline</th>
+                      <th>Task Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each completedTasks as |task|}}
+                    <tr class="task-row is-clickable" data-id="{{task.id}}">
+                      <th>{{task.id}}</th>
+                      <td>
+                        <p>{{task.task_title}}</p>
+                      </td>
+                      <td>
+                        {{formatDate task.task_deadline}}
+                      </td>
+                      <td>
+                        <p>{{sanitiseStatus task.status}}</p>
+                      </td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+                <table class="table tasks-table is-scrollable is-hidden" id="in-progress-tasks">
+                  <thead>
+                    <tr>
+                      <th><abbr title="Position">Task ID</abbr></th>
+                      <th>Task Title</th>
+                      <th>Task Deadline</th>
+                      <th>Task Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each inProgressTasks as |task|}}
+                    <tr class="task-row is-clickable" data-id="{{task.id}}">
+                      <th>{{task.id}}</th>
+                      <td>
+                        <p>{{task.task_title}}</p>
+                      </td>
+                      <td>
+                        {{formatDate task.task_deadline}}
+                      </td>
+                      <td>
+                        <p>{{sanitiseStatus task.status}}</p>
+                      </td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+                <table class="table tasks-table is-scrollable is-hidden" id="not-started-tasks">
+                  <thead>
+                    <tr>
+                      <th><abbr title="Position">Task ID</abbr></th>
+                      <th>Task Title</th>
+                      <th>Task Deadline</th>
+                      <th>Task Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each notStartedTasks as |task|}}
+                    <tr class="task-row is-clickable" data-id="{{task.id}}">
+                      <th>{{task.id}}</th>
+                      <td>
+                        <p>{{task.task_title}}</p>
+                      </td>
+                      <td>
+                        {{formatDate task.task_deadline}}
+                      </td>
+                      <td>
+                        <p>{{sanitiseStatus task.status}}</p>
+                      </td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{>modal-task-details}}
+<script src="/js/tasksTable.js"></script>

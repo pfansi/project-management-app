@@ -1,0 +1,93 @@
+<section id='modalTaskDetails' class='modal'>
+  <div class='modal-background'></div>
+  <div class='modal-card'>
+    <div class='hero m-auto is-large'>
+      <div class='container is-fluid columns is-centered'>
+        <div class='is-flex is-justify-content-space-evenly p-5 has-background-info-dark'>
+          <div class='columns is-desktop'>
+            <div class='column'>
+              <div class='card'>
+                <div class='card-content'>
+                  <form class="update-task-form">
+                    <h1 class='box title has-text-white has-text-centered has-background-info-dark'>
+                      Task Details
+                    </h1>
+                    <div class='columns'>
+                      <div class='column is-4 mr-1 mt-1'>
+                        <div class='tags are-medium'>
+                          <span class='tag has-background-warning'>Task Name</span>
+                        </div>
+                      </div>
+                      <div class='column is-8'>
+                        <div class='field'>
+                          <div class='control'>
+                            <input id="task-title" class='input' type='text' placeholder='Text input' required
+                              minlength='5' maxlength='25' />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='columns'>
+                      <div class='column is-4 mr-1 mt-1'>
+                        <div class='tags are-medium'>
+                          <span class='tag has-background-warning' required>Deadline</span>
+                        </div>
+                      </div>
+                      <div class='column is-8'>
+                        <div class='field'>
+                          <div class='control'>
+                            <input id="task-deadline" class='input' type='date' placeholder='Text input' />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='columns'>
+                      <div class='column is-4 mr-1 mt-1'>
+                        <div class='tags are-medium'>
+                          <span class='tag has-background-warning' required>Status</span>
+                        </div>
+                      </div>
+                      <div class='column is-8'>
+                        <div class='field'>
+                          <div class='control'>
+                            <div class='select'>
+                              <select id="task-status">
+                                <option selected disabled>Change Task Status</option>
+                                <option>Not Started</option>
+                                <option>In Progress</option>
+                                <option>Completed</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='tags are-medium m-0'>
+                      <span class='tag has-background-warning'>
+                        Task Description
+                      </span>
+                    </div>
+                    <textarea id="task-description" class='textarea is-info' placeholder='Info textarea' minlength='10'
+                      maxlength='200'></textarea>
+                    <div class='field is-grouped is-grouped-centered mt-2'>
+                      <p class='control'>
+                        <button type='submit' class='button is-success'>
+                          Update Task
+                        </button>
+                      </p>
+                      <p class='control'>
+                        <button type="button" class='button is-danger cancel-update-task'>
+                          Cancel
+                        </button>
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

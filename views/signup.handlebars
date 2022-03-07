@@ -1,0 +1,53 @@
+<section class='level m-5'>
+  <div class='container'>
+    <div class='columns is-centered '>
+      <div class='card column has-background-info-dark form-container'>
+        <section class="box mb-0">
+          <div class='has-text-centered'>
+            <figure class='image is-64x64 is-inline-block'>
+              <img src='/img/ttmLogo.jpg' />
+            </figure>
+          </div>
+          <h1 class='title is-1 has-text-grey-dark has-text-centered'>Team Task
+            Manager</h1>
+          <form class='mb-0' id='signup-form'>
+            <div class='field has-text-grey-dark'>
+              <label for='first-name' class='label'>First Name</label>
+              <div class='control'>
+                <input class='input' type='text' placeholder='First Name' id='first-name' minlength='1'
+                  maxlength='20' />
+              </div>
+            </div>
+            <div class='field has-text-grey-dark'>
+              <label for='last-name' class='label'>Last Name</label>
+              <div class='control'>
+                <input class='input' type='text' placeholder='Last Name' id='last-name' minlength='1' maxlength='20' />
+              </div>
+            </div>
+            <div class='field has-text-grey-dark'>
+              <label for='username' class='label'>Username</label>
+              <div class='control'>
+                <input class='input' type='text' placeholder='username' id='username' minlength='5' maxlength='15' />
+              </div>
+            </div>
+
+            <div class='field has-text-grey-dark'>
+              <label for='password' class='label'>Password</label>
+              <div class='control'>
+                <input class='input' id='password' type='password' placeholder='********' minlength='8' />
+              </div>
+            </div>
+            <div class='field is-flex is-justify-content-space-evenly'>
+              <button class='button is-primary'>Sign up</button>
+            </div>
+          </form>
+          <p class='has-text-centered mt-2'>
+            or log in
+            <a href='/login'>here</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src='/js/signup.js'></script>
+</section>
